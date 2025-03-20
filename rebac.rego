@@ -10,14 +10,15 @@ default rebac_roles := []
 
 default cache_rebuild := false
 
-rebac_roles_result := result {
-  __rebac_data := {
-  	"role_assignments": data.role_assignments,
-  	"relationships": data.relationships,
-  	"resource_types": data.resource_types,
+cache_rebuild {
+  __rebac_data = {
+      "role_assignments": data.role_assignments,
+      "relationships": data.relationships,
+      "resource_types": data.resource_types,
   }
-  result := permit_rebac_roles(__rebac_data, input)
+	permit_rebac.update_cache(__rebac_data)
 }
+rebac_roles_result := permit_rebac.roles(input)
 
 
 rebac_roles := rebac_roles_result.roles

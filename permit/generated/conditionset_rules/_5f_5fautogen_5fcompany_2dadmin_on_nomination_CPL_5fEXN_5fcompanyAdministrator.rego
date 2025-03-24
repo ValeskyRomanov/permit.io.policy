@@ -1,0 +1,15 @@
+package permit.generated.conditionset.rules
+
+import future.keywords.in
+
+import data.permit.generated.abac.utils.attributes
+import data.permit.generated.abac.utils.condition_set_permissions
+import data.permit.generated.conditionset
+
+default _5f5f_5f5fautogen_5f5fcompany_5f2dadmin_5fon_5fnomination_5fCPL_5f5fEXN_5f5fcompanyAdministrator = false
+
+_5f5f_5f5fautogen_5f5fcompany_5f2dadmin_5fon_5fnomination_5fCPL_5f5fEXN_5f5fcompanyAdministrator {
+	conditionset.userset__5f_5fautogen_5fcompany_2dadmin
+	conditionset.resourceset_CPL_5fEXN_5fcompanyAdministrator
+	input.action in condition_set_permissions["__autogen_company-admin"].CPL_EXN_companyAdministrator[input.resource.type]
+}
